@@ -84,7 +84,9 @@ namespace console_snake
       private static bool hasBonus = false;
       private static int currentBonus = BONUS;
       private static int startLength = 5;
-      private static int growth = 5;
+      private static int growth = 1;
+      private static int startGrowth = 1;
+      private static int growthIncrease = 1;
       private static List<ConsoleKey> keyInputs = new List<ConsoleKey>();
 
       static void Main(string[] args)
@@ -186,6 +188,7 @@ namespace console_snake
                   score += scoreIncrease;
                   scoreIncrease += scoreIncreaseIncrease;
                   length += growth;
+                  growth += growthIncrease;
                }
 
                // move snake
@@ -337,6 +340,7 @@ namespace console_snake
          length = startLength;
          scoreIncrease = 100;
          bonusIncrease = 500;
+         growth = startGrowth;
          var startX = length + 2;
 
          for (int x = 1; x < playfield.GetUpperBound(0); x++)
